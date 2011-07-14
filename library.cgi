@@ -1,16 +1,13 @@
-#! /usr/bin/python2.5
+#! /usr/local/bin/python2.5
 
 import feedparser
 from datetime import datetime
-# import sys
 
 #  USER OPTIONS AND CUSTOMIZATION
 #
-checkedoutfeeds =
-	["http://catalog.spl.org/rss/itemsout.jsp?id=something",
+checkedoutfeeds =	["http://catalog.spl.org/rss/itemsout.jsp?id=something",
 	 "http://catalog.spl.org/rss/itemsout.jsp?id=something else"]
-holdfeeds =
-	["http://catalog.spl.org/rss/holds.jsp?id=something",
+holdfeeds =	["http://catalog.spl.org/rss/holds.jsp?id=something",
 	 "http://catalog.spl.org/rss/holds.jsp?id=something-else"]
 #
 # toggle whether to show the name of the person next to each book.
@@ -26,7 +23,9 @@ def truncate(str,n):
 	else:
 		return str
 
-#Extracts the date from the summary part of the RSS feed and parses it. I'm using the specific knowledge of how this particular RSS feed displays the date (as mm/dd/yyyy)
+#Extracts the date from the summary part of the RSS feed and parses it.
+#I'm using the specific knowledge of how this particular RSS feed displays
+#the date (as mm/dd/yyyy)
 def extractdate(str):
 	loc = str.find("Date Due:")
 	daystr = str[loc+10:loc+20]
@@ -63,7 +62,8 @@ def itemsoutlist(booklist,tag):
 	return [(extractdate(book.summary),truncate(book.title,40),tag) for book in booklist]
 
 def holdslist(booklist,tag):
-	return [(truncate(extracttitle(book.title),40),extractstatus(book.summary),tag) for book in booklist]
+	return [(truncate(extracttitle(book.title),40),extractstatus(book.summary),tag)
+				for book in booklist]
 
 
 # BEGIN EXECUTION
