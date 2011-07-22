@@ -73,11 +73,12 @@ print """Content-Type: text/html; charset=UTF-8
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=350px">
+		<meta name="viewport" content="width=400px">
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		<title>Library Books</title>
+	
 	</head>
 	<body>
-		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		<p>
 			<a href='http://seattle.bibliocommons.com/'>Go to
 			library web page.</a>
