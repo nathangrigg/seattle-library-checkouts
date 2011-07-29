@@ -59,10 +59,10 @@ def sortkey(blahlist):
 
 # takes the items out list and returns a list of books and due dates
 def itemsoutlist(booklist,tag):
-	return [(extractdate(book.summary),truncate(book.title,40),tag) for book in booklist]
+	return [(extractdate(book.summary),truncate(book.title.encode('UTF-8'),40),tag) for book in booklist]
 
 def holdslist(booklist,tag):
-	return [(truncate(extracttitle(book.title),40),extractstatus(book.summary),tag)
+	return [(truncate(extracttitle(book.title.encode('UTF-8')),40),extractstatus(book.summary),tag)
 				for book in booklist]
 
 
